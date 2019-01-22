@@ -1,0 +1,24 @@
+======================================
+Time: 2019-01-17 15:24:08 
+Oracle Home: /u02/app/oracle/product/11.2.0/dbhome_5 
+Oracle SID: ogr001q2 
+Working directory: /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901 
+======================================
+
+Import: Release 11.2.0.4.0 - Production on Thu Jan 17 15:24:08 2019
+
+Copyright (c) 1982, 2011, Oracle and/or its affiliates.  All rights reserved.
+
+Connected to: Oracle Database 11g EE Extreme Perf Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, Oracle Label Security,
+OLAP, Data Mining, Oracle Database Vault and Real Application Testing options
+FLASHBACK automatically enabled to preserve database integrity.
+Starting "SYS"."SYS_IMPORT_TABLE_05":  "/******** AS SYSDBA" network_link=JDE001Q.EM3.ORACLECLOUD.COM TABLE_EXISTS_ACTION=truncate exclude=PROCACT_INSTANCE,constraint,index,statistics directory=DPUMP cluster=n logfile=imp_ogr001q_F0911.log tables=QADTA.F0911 REMAP_TABLE=F0911:F0911_LOAD REMAP_SCHEMA=QADTA:OPRDTA REMAP_TABLESPACE=QADTAT:LOAD_F0911 exclude=PROCACT_INSTANCE,constraint,index,statistics CONTENT=data_only 
+Estimate in progress using BLOCKS method...
+Processing object type TABLE_EXPORT/TABLE/TABLE_DATA
+Total estimation using BLOCKS method: 14.70 GB
+. . imported "OPRDTA"."F0911_LOAD"                      247858837 rows
+Job "SYS"."SYS_IMPORT_TABLE_05" successfully completed at Thu Jan 17 18:48:53 2019 elapsed 0 03:24:45
+
+Rest tables imported 
+[32m SUCCESS: yay [0m

@@ -1,0 +1,205 @@
++++ dirname ./refresh_F0911.sh
+++ cd .
+++ pwd
++ __dir=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta
+++ basename ./refresh_F0911.sh
++ __file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta/refresh_F0911.sh
+++ basename /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta/refresh_F0911.sh .sh
++ __base=refresh_F0911
++++ dirname /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta
+++ cd /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr
+++ pwd
++ __root=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr
+++ date +%Y%m
++ __date=201901
+++ date '+%Y-%m-%d %T'
++ __time='2019-01-18 19:43:40'
++ __work_dir=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901
++ __state_file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ __log_file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/refresh.log
++ source /home/oracle/ogr001q.env
+++ GG_HOME=/u02/app/oracle/product/ogg12.2/ogr001q
+++ export GG_HOME
+++ ORACLE_HOME=/u02/app/oracle/product/11.2.0/dbhome_5
+++ export ORACLE_HOME
+++ OH=/u02/app/oracle/product/11.2.0/dbhome_5
+++ export OH
+++ ORACLE_UNQNAME=ogr001q
+++ export ORACLE_UNQNAME
+++ ORACLE_HOSTNAME=slcldv0455m.em3.oraclecloud.com
+++ export ORACLE_HOSTNAME
+++ ORACLE_BASE=/u02/app/oracle
+++ export ORACLE_BASE
+++ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/u02/app/oracle/product/11.2.0/dbhome_5/bin:/u02/app/oracle/product/11.2.0/dbhome_5/OPatch
+++ export PATH
+++ LD_LIBRARY_PATH=/u02/app/oracle/product/11.2.0/dbhome_5/lib
+++ export LD_LIBRARY_PATH
+++ ORACLE_SID=ogr001q2
+++ export ORACLE_SID
+++ NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+++ export NLS_DATE_FORMAT
+++ alias 'ggsci=rlwrap $GG_HOME/ggsci'
+++ . /home/oracle/.common
++++ alias 'pmon=ps -ef|grep pmon'
++++ alias 'sqlplus=rlwrap $ORACLE_HOME/bin/sqlplus'
++++ alias 'sysdba=sqlplus / as sysdba'
++++ alias 'rman=rlwrap $ORACLE_HOME/bin/rman'
++++ alias 'tnsdir=cd $ORACLE_HOME/network/admin'
++++ alias 'dbsdir=cd $ORACLE_HOME/dbs'
++++ alias 'tracedir=cd $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace'
++++ alias 'backupdir=cd /var/opt/oracle/log/$ORACLE_UNQNAME/obkup'
++++ alias 'alertlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
++++ alias 'brokerlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/drc$ORACLE_SID.log'
++++ export SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ export ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++++ ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++ __db_ogr001q_path=/nfsshare/dpump/ogr001q/
++ mkdir -p /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901
++ '[' '!' -f /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file ']'
++ printf '======================================\n'
++ printf 'Time: 2019-01-18 19:43:40 \n'
++ printf 'Oracle Home: /u02/app/oracle/product/11.2.0/dbhome_5 \n'
++ printf 'Oracle SID: ogr001q2 \n'
++ printf 'Working directory: /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901 \n'
++ printf '======================================\n'
++ tee /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/refresh.log
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
+======================================
+Time: 2019-01-18 19:43:40 
+Oracle Home: /u02/app/oracle/product/11.2.0/dbhome_5 
+Oracle SID: ogr001q2 
+Working directory: /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901 
+======================================
++ '[' 8 == 0 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 1 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 2 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 3 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 4 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 5 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 6 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 7 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 8 == 8 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/load_table_F0911.log
++ sqlplus -S '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta/load_table_F0911.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/load_table_F0911.log 9
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/load_table_F0911.log
++ local step=9
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/load_table_F0911.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/load_table_F0911.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 9
++ printf 'Data was loaded to F0911 table \n'
+Data was loaded to F0911 table 
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 9 == 9 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.log
++ sqlplus -S '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.log 10
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.log
++ local step=10
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ wc -l
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.log
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/create_idx_ogr.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 10
++ printf 'Indexes created \n'
+Indexes created 
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 10 == 10 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.log
++ sqlplus -S '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.log 11
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.log
++ local step=11
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/enable_constraint.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 11
++ printf 'Constraints enabled \n'
+Constraints enabled 
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 11 == 11 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/gather_stats.log
++ sqlplus -S '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta/gather_stats.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/gather_stats.log 12
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/gather_stats.log
++ local step=12
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/gather_stats.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/gather_stats.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 12
++ printf 'Statistics gathered \n'
+Statistics gathered 
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/state.file
++ '[' 12 == 12 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/drop_table.log
++ sqlplus -S '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/meta/drop_table.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/drop_table.log 13
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/drop_table.log
++ local step=13
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/drop_table.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_F0911_ogr/201901/drop_table.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 13
++ printf 'Drop temporary table. \n'
++ printf '==========================================================\n'
++ printf Time: 2019-01-18 19:43:40
++ printf '\033[32m SUCCESS: All steps finished successfully. \033[0m\n'
+Drop temporary table. 
+==========================================================
+Time:+ printf '==========================================================\n'
+[32m SUCCESS: All steps finished successfully. [0m
+==========================================================

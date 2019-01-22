@@ -1,0 +1,138 @@
++++ dirname ./refresh_ogr.sh
+++ cd .
+++ pwd
++ __dir=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/meta
+++ basename ./refresh_ogr.sh
++ __file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/meta/refresh_ogr.sh
+++ basename /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/meta/refresh_ogr.sh .sh
++ __base=refresh_ogr
++++ dirname /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/meta
+++ cd /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr
+++ pwd
++ __root=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr
+++ date +%Y%m
++ __date=201901
+++ date '+%Y-%m-%d %T'
++ __time='2019-01-18 21:16:49'
++ __work_dir=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901
++ __state_file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ __log_file=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/refresh.log
++ source /home/oracle/ogr001q.env
+++ ORACLE_HOME=/u02/app/oracle/product/11.2.0/dbhome_5
+++ export ORACLE_HOME
+++ OH=/u02/app/oracle/product/11.2.0/dbhome_5
+++ export OH
+++ ORACLE_UNQNAME=ogr001q
+++ export ORACLE_UNQNAME
+++ ORACLE_HOSTNAME=slcldv0455m.em3.oraclecloud.com
+++ export ORACLE_HOSTNAME
+++ ORACLE_BASE=/u02/app/oracle
+++ export ORACLE_BASE
+++ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/u02/app/oracle/product/11.2.0/dbhome_5/bin:/u02/app/oracle/product/11.2.0/dbhome_5/OPatch
+++ export PATH
+++ LD_LIBRARY_PATH=/u02/app/oracle/product/11.2.0/dbhome_5/lib
+++ export LD_LIBRARY_PATH
+++ ORACLE_SID=ogr001q1
+++ export ORACLE_SID
+++ NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+++ export NLS_DATE_FORMAT
+++ . /home/oracle/.common
++++ alias 'pmon=ps -ef|grep pmon'
++++ alias 'sqlplus=rlwrap $ORACLE_HOME/bin/sqlplus'
++++ alias 'sysdba=sqlplus / as sysdba'
++++ alias 'rman=rlwrap $ORACLE_HOME/bin/rman'
++++ alias 'tnsdir=cd $ORACLE_HOME/network/admin'
++++ alias 'dbsdir=cd $ORACLE_HOME/dbs'
++++ alias 'tracedir=cd $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace'
++++ alias 'backupdir=cd /var/opt/oracle/log/$ORACLE_UNQNAME/obkup'
++++ alias 'alertlog=tail -f -n 200 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
++++ alias 'brokerlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/drc$ORACLE_SID.log'
++++ export SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ export ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++++ ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++ __db_ogr001q_path=/nfsshare/dpump/ogr001q/
++ mkdir -p /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901
++ '[' '!' -f /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file ']'
++ printf '======================================\n'
++ printf 'Time: 2019-01-18 21:16:49 \n'
++ printf 'Oracle Home: /u02/app/oracle/product/11.2.0/dbhome_5 \n'
++ tee /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/refresh.log
++ printf 'Oracle SID: ogr001q1 \n'
++ printf 'Working directory: /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901 \n'
++ printf '======================================\n'
+======================================
+Time: 2019-01-18 21:16:49 
+Oracle Home: /u02/app/oracle/product/11.2.0/dbhome_5 
+Oracle SID: ogr001q1 
+Working directory: /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901 
+======================================
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 0 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 1 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 2 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 3 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 4 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 5 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 6 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 7 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 8 ']'
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 9 == 9 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.log
++ sqlplus '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.log 10
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.log
++ local step=10
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/enable_constraint.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 10
++ printf 'Constraints enabled \n'
+Constraints enabled 
+++ cat /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/state.file
++ '[' 10 == 10 ']'
++ __file_output=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/gather_stats.log
++ sqlplus '/ as sysdba' @/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/meta/gather_stats.sql
++ _check_error /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/gather_stats.log 11
++ local cmd_status=0
++ local file_name=/scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/gather_stats.log
++ local step=11
++ ERROR_COUNT=0
++ ERROR_IMP_COUNT=0
+++ grep ORA- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/gather_stats.log
+++ wc -l
++ ERROR_COUNT=0
+++ grep IMP- /scratch/acfsc1_dg1/shellscripts/marclad/refresh_ogr/201901/gather_stats.log
+++ wc -l
++ ERROR_IMP_COUNT=0
++ '[' 0 -eq 0 ']'
++ '[' 0 -gt 0 ']'
++ '[' 0 -gt 0 ']'
++ echo 11
++ printf 'Statistics gathered \n'
++ printf '==========================================================\n'
+Statistics gathered 
+==========================================================
++ printf Time: 2019-01-18 21:16:49
+Time:+ printf '\033[32m SUCCESS: All steps finished successfully. \033[0m\n'
++ printf '==========================================================\n'
+[32m SUCCESS: All steps finished successfully. [0m
+==========================================================

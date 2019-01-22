@@ -1,0 +1,6 @@
+parallel=8
+logfile=crpctl_tables.log
+dumpfile=crpctl_tables.dmp
+directory=DPUMP
+schemas=CRPCTL
+include=TABLE:"IN ('F0006','F01151Z1','F03012Z1','F1201','F4008','F4101Z1A','F41021','F4105Z1','F41511','F4211','F550305Z','F554133','F559222D','F983051','F983052','F98305V','F98760','F98761')"

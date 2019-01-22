@@ -1,0 +1,6 @@
+schemas=CRPDTA
+include=TABLE:"IN ('F5541125','F5541511','F554201T','F5542146','F554801C','F5562022','F556245','F556246','F5574401','F5574411','F557906','F55UI41')"
+parallel=8
+logfile=crpdta_tables.log
+dumpfile=crpdta_tables.dmp
+directory=DPUMP
