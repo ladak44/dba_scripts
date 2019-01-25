@@ -109,6 +109,8 @@ fi
 # remove backups older than retention period
 find ${__backup_dir} -mtime +${__retention_period} -name '*bzip' -exec rm {} \;
 
+__time=`date +"%Y-%m-%d %T"`
+
 printf "==========================================================\n"
 printf "Time: ${__time} \n"
 printf "\033[32mSUCCESS: All steps finished successfully. \033[0m\n"
