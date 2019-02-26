@@ -1,0 +1,183 @@
++++ dirname ./refresh.sh
+++ cd .
+++ pwd
++ __dir=/home/oracle/marclad/refresh_jde/meta
+++ basename ./refresh.sh
++ __file=/home/oracle/marclad/refresh_jde/meta/refresh.sh
+++ basename /home/oracle/marclad/refresh_jde/meta/refresh.sh .sh
++ __base=refresh
++++ dirname /home/oracle/marclad/refresh_jde/meta
+++ cd /home/oracle/marclad/refresh_jde
+++ pwd
++ __root=/home/oracle/marclad/refresh_jde
+++ date +%Y%m
++ __date=201902
+++ date '+%Y-%m-%d %T'
++ __time='2019-02-21 08:22:15'
++ __work_dir=/home/oracle/marclad/refresh_jde/201902
++ __state_file=/home/oracle/marclad/refresh_jde/201902/state.file
++ __log_file=/home/oracle/marclad/refresh_jde/201902/refresh.log
++ __source_sid=
++ __target_sid=
++ __schema=
++ __system_password=
++ __pump_directory=/nfsshare/dpump
++ '[' 1 -ne 1 ']'
++ __source_sid=jde001q
++ __target_sid=jde002d
++ __source_schema=QADTA
++ __target_schema=TESTDTA
++ __source_idx_tbs=QADTAI
++ __target_idx_tbs=TESTDTAI
++ __source_dta_tbs=QADTAT
++ __target_dta_tbs=TESTDTAT
++ __system_password=BpBMIclSBXOx96Ghwx
++ __work_dir=/home/oracle/marclad/refresh_jde/201902/TESTDTA
++ __state_file=/home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ __log_file=/home/oracle/marclad/refresh_jde/201902/TESTDTA/refresh.log
++ __db_link_name=IMPDP_TESTDTA
++ __directory_name=DIR_TESTDTA
++ __pump_directory=/nfsshare/dpump/jde002d/201902/TESTDTA
++ __pump_parallelism=12
++ mkdir -p /home/oracle/marclad/refresh_jde/201902/TESTDTA
++ '[' '!' -f /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file ']'
++ '[' '!' -d /nfsshare/dpump/jde002d/201902/TESTDTA ']'
++ printf '======================================\n'
++ printf 'Time: 2019-02-21 08:22:15 \n'
++ printf 'Source SID: jde001q \n'
++ tee /home/oracle/marclad/refresh_jde/201902/TESTDTA/refresh.log
++ printf 'Target SID: jde002d \n'
++ printf 'Source Schema: QADTA \n'
++ printf 'Target Schema: TESTDTA \n'
++ printf 'Source IDX tablespace: QADTAI \n'
++ printf 'Target IDX tablespace: TESTDTAI \n'
++ printf 'Source DTA tablespace: QADTAT \n'
++ printf 'Target DTA tablespace: TESTDTAT \n'
++ printf 'Working directory: /home/oracle/marclad/refresh_jde/201902/TESTDTA \n'
++ printf 'Database link: IMPDP_TESTDTA \n'
++ printf 'Directory name: DIR_TESTDTA \n'
++ printf '======================================\n'
++ source /home/oracle/jde001q.env
+++ ORACLE_HOME=/u02/app/oracle/product/12.1.0/dbhome_4
+++ export ORACLE_HOME
+++ OH=/u02/app/oracle/product/12.1.0/dbhome_4
+++ export OH
+++ ORACLE_UNQNAME=jde001q
+++ export ORACLE_UNQNAME
+++ ORACLE_HOSTNAME=slcldv0456m.em3.oraclecloud.com
+++ export ORACLE_HOSTNAME
+++ ORACLE_BASE=/u02/app/oracle
+++ export ORACLE_BASE
+++ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/u02/app/oracle/product/12.1.0/dbhome_4/bin:/u02/app/oracle/product/12.1.0/dbhome_4/OPatch
+++ export PATH
+++ LD_LIBRARY_PATH=/u02/app/oracle/product/12.1.0/dbhome_4/lib
+++ export LD_LIBRARY_PATH
+++ ORACLE_SID=jde001q2
+++ export ORACLE_SID
+++ NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+++ export NLS_DATE_FORMAT
+++ . /home/oracle/.common
++++ alias 'pmon=ps -ef|grep pmon'
++++ alias 'sqlplus=rlwrap $ORACLE_HOME/bin/sqlplus'
++++ alias 'sysdba=sqlplus / as sysdba'
++++ alias 'rman=rlwrap $ORACLE_HOME/bin/rman'
++++ alias 'tnsdir=cd $ORACLE_HOME/network/admin'
++++ alias 'dbsdir=cd $ORACLE_HOME/dbs'
++++ alias 'tracedir=cd $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace'
++++ alias 'backupdir=cd /var/opt/oracle/log/$ORACLE_UNQNAME/obkup'
++++ alias 'alertlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
++++ alias 'brokerlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/drc$ORACLE_SID.log'
++++ export SQLPATH=/scratch/acfsc1_dg1/sqlscripts
+======================================
+Time: 2019-02-21 08:22:15 
+Source SID: jde001q 
+Target SID: jde002d 
+Source Schema: QADTA 
+Target Schema: TESTDTA 
+Source IDX tablespace: QADTAI 
+Target IDX tablespace: TESTDTAI 
+Source DTA tablespace: QADTAT 
+Target DTA tablespace: TESTDTAT 
+Working directory: /home/oracle/marclad/refresh_jde/201902/TESTDTA 
+Database link: IMPDP_TESTDTA 
+Directory name: DIR_TESTDTA 
+======================================
++++ SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ export ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++++ ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 0 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 1 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 2 ']'
++ set up envrionment
++ source /home/oracle/jde002d.env
+++ ORACLE_HOME=/u02/app/oracle/product/12.1.0/dbhome_4
+++ export ORACLE_HOME
+++ OH=/u02/app/oracle/product/12.1.0/dbhome_4
+++ export OH
+++ ORACLE_UNQNAME=jde002d
+++ export ORACLE_UNQNAME
+++ ORACLE_HOSTNAME=slcldv0456m.em3.oraclecloud.com
+++ export ORACLE_HOSTNAME
+++ ORACLE_BASE=/u02/app/oracle
+++ export ORACLE_BASE
+++ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/u02/app/oracle/product/12.1.0/dbhome_4/bin:/u02/app/oracle/product/12.1.0/dbhome_4/OPatch
+++ export PATH
+++ LD_LIBRARY_PATH=/u02/app/oracle/product/12.1.0/dbhome_4/lib
+++ export LD_LIBRARY_PATH
+++ ORACLE_SID=jde002d
+++ export ORACLE_SID
+++ NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+++ export NLS_DATE_FORMAT
+++ . /home/oracle/.common
++++ alias 'pmon=ps -ef|grep pmon'
++++ alias 'sqlplus=rlwrap $ORACLE_HOME/bin/sqlplus'
++++ alias 'sysdba=sqlplus / as sysdba'
++++ alias 'rman=rlwrap $ORACLE_HOME/bin/rman'
++++ alias 'tnsdir=cd $ORACLE_HOME/network/admin'
++++ alias 'dbsdir=cd $ORACLE_HOME/dbs'
++++ alias 'tracedir=cd $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace'
++++ alias 'backupdir=cd /var/opt/oracle/log/$ORACLE_UNQNAME/obkup'
++++ alias 'alertlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/alert_$ORACLE_SID.log'
++++ alias 'brokerlog=tail -f -n 50 $ORACLE_BASE/diag/rdbms/$ORACLE_UNQNAME/$ORACLE_SID/trace/drc$ORACLE_SID.log'
++++ export SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ SQLPATH=/scratch/acfsc1_dg1/sqlscripts
++++ export ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
++++ ORACLE_PATH=/scratch/acfsc1_dg1/sqlscripts
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 3 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 4 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 5 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 6 ']'
+++ cat /home/oracle/marclad/refresh_jde/201902/TESTDTA/state.file
++ '[' 7 == 7 ']'
++ __file_output=/home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
++ sqlplus -S /@jde002d as sysdba @/home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.sql
++ _check_error /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
++ local file_name=/home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
++ ERROR_COUNT=0
+++ grep ORA- /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
+++ wc -l
++ ERROR_COUNT=502
+++ grep IMP- /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
+++ wc -l
++ ERROR_IMP_COUNT=0
+++ wc -c /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
+++ awk '{print $1}'
++ FILE_SIZE=500155
++ '[' 500155 = 0 ']'
++ '[' 502 -gt 0 ']'
++ printf '======================================\n'
++ printf '\033[31mSome errors in file /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log\n'
++ printf 'Please validate.\033[0m\n'
++ printf '======================================\n'
++ exit 1
+======================================
+[31mSome errors in file /home/oracle/marclad/refresh_jde/201902/TESTDTA/create_idx.log
+Please validate.[0m
+======================================

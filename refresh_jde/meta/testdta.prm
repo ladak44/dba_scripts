@@ -1,0 +1,8 @@
+source_sid=jde001q
+target_sid=jde002d
+source_schema=QADTA
+target_schema=TESTDTA
+source_idx_tbs=QADTAI
+target_idx_tbs=TESTDTAI
+source_dta_tbs=QADTAT
+target_dta_tbs=TESTDTAT
