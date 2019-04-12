@@ -264,6 +264,7 @@ source /home/oracle/"${__target_sid}".env
 # Step 5.
 # Drop user on target
 if [ `cat ${__state_file}` == '4' ]; then
+   if [ ${__drop_users} == 'Y' ]; then 
        # check if any active sessions exists  
        __file_output=${__work_dir}/kill_active_session.sql
        sqlplus -S /@${__target_sid} as sysdba @${__dir}/get_active_session2.sql ${__target_sid} > ${__file_output}
@@ -275,6 +276,9 @@ if [ `cat ${__state_file}` == '4' ]; then
        _check_error ${__file_output} 
        echo "5" > ${__state_file}
        printf "User ${__target_schema}  dropped. \n"
+   else 
+       echo "5" > ${__state_file}
+   fi
 fi
 
 
