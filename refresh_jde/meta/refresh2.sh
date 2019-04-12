@@ -42,6 +42,7 @@ set -o xtrace
 # add parser for parameter file
 # add possibility to process multiple schemas simultaneously
 
+
 # Setting up variables
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
@@ -148,6 +149,7 @@ __target_idx_tbs=`get_parameter "target_idx_tbs"`
 __source_dta_tbs=`get_parameter "source_dta_tbs"`
 __target_dta_tbs=`get_parameter "target_dta_tbs"`
 __parallelism=`get_parameter "parallelism"`
+__drop_user=`get_parameter "drop_user"`
 
 __work_dir=${__root}/${__date}/${__target_schema}
 __state_file=${__work_dir}/state.file
@@ -186,6 +188,7 @@ printf "Working directory: ${__work_dir} \n"
 printf "Database link: ${__db_link_name} \n"
 printf "Directory name: ${__directory_name} \n"
 printf "Parallelism: ${__parallelism} \n"
+printf "Drop user: ${__drop_users} \n"
 printf "======================================\n"
 
 # set up envrionment -  source
@@ -196,13 +199,13 @@ source /home/oracle/"${__source_sid}".env
 ####################################
 
 # Step 1.
-# Create users DDL file - create_user.sql 
+# Create users DDL file - create_user_privs.sql 
 if [ `cat ${__state_file}` == '0' ]; then
-        __file_output=${__work_dir}/create_user.sql
-        sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_user.sql ${__source_schema} > ${__file_output}
+        __file_output=${__work_dir}/create_user_privs.sql
+        sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_user_privs.sql ${__source_schema} > ${__file_output}
         _check_error ${__file_output}
         echo "1" > ${__state_file}
-        printf "Users DDL file created: create_user.sql\n"
+        printf "Users privileges DDL file created: create_user.sql\n"
         # replace schema name
 	sed -i -e s/"${__source_schema}"/"${__target_schema}"/g ${__file_output}
 	# replace tablespace name
@@ -212,11 +215,10 @@ fi
 
 # Step 2.
 # Create indexes DDL script create_idx.sql
-# Fix
-# exchange from sed to transform method
+# Replace tablespace name 
 if [ `cat ${__state_file}` == '1' ]; then
 	__file_output=${__work_dir}/create_idx.sql
-	sqlplus -S /@${__source_sid}  as sysdba @${__dir}/get_ddl_idx.sql ${__source_schema} > ${__file_output}
+	sqlplus -S /@${__source_sid}  as sysdba @${__dir}/get_ddl_idx2.sql ${__source_schema} ${__parallelism} > ${__file_output}
 	_check_error ${__file_output}
 	echo "2" > ${__state_file}
         printf "Indexes DDL file created: create_idx.sql \n"
@@ -230,7 +232,7 @@ fi
 # Create constraints DDL script create_constraints.sql
 if [ `cat ${__state_file}` == '2' ]; then
 	__file_output=${__work_dir}/create_constraints.sql
-	sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_const.sql ${__source_schema} ${__parallelism} > ${__file_output}
+	sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_const2.sql ${__source_schema} ${__parallelism} > ${__file_output}
 	_check_error ${__file_output}
         # replace schema name
 	sed -i -e s/"${__source_schema}"/"${__target_schema}"/g ${__file_output}
@@ -244,7 +246,7 @@ fi
 # Enable constraints DDL script enable_constraints.sql
 if [ `cat ${__state_file}` == '3' ]; then
         __file_output=${__work_dir}/enable_constraints.sql
-        sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_enable.sql ${__source_schema} ${__parallelism} > ${__file_output}
+        sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_enable2.sql ${__source_schema} ${__parallelism} > ${__file_output}
         _check_error ${__file_output} 
 	sed -i -e s/"${__source_schema}"/"${__target_schema}"/g ${__file_output}
         echo "4" > ${__state_file}
@@ -264,7 +266,7 @@ source /home/oracle/"${__target_sid}".env
 if [ `cat ${__state_file}` == '4' ]; then
        # check if any active sessions exists  
        __file_output=${__work_dir}/kill_active_session.sql
-       sqlplus -S /@${__target_sid} as sysdba @${__dir}/get_active_session.sql ${__target_sid} > ${__file_output}
+       sqlplus -S /@${__target_sid} as sysdba @${__dir}/get_active_session2.sql ${__target_sid} > ${__file_output}
        # kill all sessions connected to users
        __file_output=${__work_dir}/kill_active_session.log  
        sqlplus -S /@${__target_sid} as sysdba @${__work_dir}/kill_active_session.sql > ${__file_output} 
