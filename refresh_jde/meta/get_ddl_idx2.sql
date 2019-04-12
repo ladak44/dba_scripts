@@ -32,7 +32,7 @@ variable v_username VARCHAR2(30);
 exec :v_username := '&1';
 
 
-SELECT 'alter session force parallel ddl parallel 8;' v_parallel FROM DUAL;
+SELECT 'alter session force parallel ddl parallel &2;' v_parallel FROM DUAL;
 SELECT 'set echo on' v_echo FROM DUAL;
 SELECT 'set timing on' v_time FROM DUAL;
 
