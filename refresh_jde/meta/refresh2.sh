@@ -150,6 +150,8 @@ __source_dta_tbs=`get_parameter "source_dta_tbs"`
 __target_dta_tbs=`get_parameter "target_dta_tbs"`
 __parallelism=`get_parameter "parallelism"`
 __drop_user=`get_parameter "drop_user"`
+__remap_schema=`get_parameter "remap_schema"`
+
 
 __work_dir=${__root}/${__date}/${__target_schema}
 __state_file=${__work_dir}/state.file
@@ -189,6 +191,7 @@ printf "Database link: ${__db_link_name} \n"
 printf "Directory name: ${__directory_name} \n"
 printf "Parallelism: ${__parallelism} \n"
 printf "Drop user: ${__drop_users} \n"
+printf "Remap schema: ${__remap_schema} \n"
 printf "======================================\n"
 
 # set up envrionment -  source
@@ -248,6 +251,7 @@ if [ `cat ${__state_file}` == '3' ]; then
         __file_output=${__work_dir}/enable_constraints.sql
         sqlplus -S /@${__source_sid} as sysdba @${__dir}/get_ddl_enable2.sql ${__source_schema} ${__parallelism} > ${__file_output}
         _check_error ${__file_output} 
+        # replace schema name
 	sed -i -e s/"${__source_schema}"/"${__target_schema}"/g ${__file_output}
         echo "4" > ${__state_file}
         printf "Enable constraints DDL file created: enable_constraints.sql\n"
@@ -360,11 +364,10 @@ fi
 #Step 12.
 #Gather stats
 if [ `cat ${__state_file}` == '11' ]; then
-	__file_output=${__work_dir}/gather_stats.log
-        __sql_text="exec dbms_stats.gather_schema_stats (ownname=>'${__target_schema}',granularity =>'GLOBAL',CASCADE=> true,estimate_percent=>dbms_stats.auto_sample_size,degree=>dbms_stats.auto_degree);"
-	sqlplus -S /@${__target_sid} as sysdba  << EOF > ${__file_output}
-${__sql_text}
-EOF
+	__file_output=${__work_dir}/gather_schema_stats.sql
+	sqlplus -S /@${__target_sid} as sysdba @${__dir}/get_ddl_gather_schema.sql ${__target_schema}  > ${__file_output}
+	_check_error ${__file_output}
+	sqlplus -S /@${__target_sid} as sysdba @${__dir}/gather_schema_stats.sql > ${__file_output}
 	_check_error ${__file_output}
 	echo "12" > ${__state_file}
         printf "Statistics gathered \n"
