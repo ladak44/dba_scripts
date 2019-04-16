@@ -1,4 +1,7 @@
 
+
+
+
 set heading off
 
 --spool drop_idx.sql
