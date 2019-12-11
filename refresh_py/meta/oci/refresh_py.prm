@@ -1,0 +1,10 @@
+directory=dpump
+network_link=JDE001Q_PDB.STATOILFUELRETAIL.COM 
+schemas='QADTA' 
+remap_schema=QADTA:CRPDTA
+remap_tablespace=QADTAI:CRPDTAI,QADTAT:CRPDTAT
+EXCLUDE=TABLE:"IN ('F4074','F4211','F42119','F42199','FF49211','F554248','F47042','F47041','F550920H','F554231H','F5547012','F5547011','F550408H','F4311','F43121', 'F43199','F4111','F0018R','F0911','F0911R','F550911T','F550997','F556201')",statistics
+logfile=refresh_py.log
+parallel=16
+transform=disable_archive_logging:y 
+cluster=n
