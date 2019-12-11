@@ -1,0 +1,7 @@
+>>>> import QADTA schmeas
+
+impdp \'sys/**********@JDE001D_PDB as sysdba\' PARFILE=refresh_py.prm
+
+>>>> import tables from QADTA tables
+
+impdp \'sys/**********@JDE001D_PDB as sysdba\' PARFILE=tables_py.prm
