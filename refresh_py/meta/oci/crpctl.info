@@ -1,0 +1,18 @@
+1. Refresh CRPCTL schema.
+
+>>>
+drop user CRPCTL cascade;
+
+>>> TESTCTL -> CRPCTL
+impdp \'sys/*********@JDE001D_PDB as sysdba\' schemas=TESTCTL network_link=JDE001D_PDB_2 remap_schema=TESTCTL:CRPCTL remap_tablespace=TESTCTLI:CRPCTLI,TESTCTLT:CRPCTLT \
+logfile=test_tables.log cluster=n parallel=4
+
+>>> QACTL -> CRPCTL
+>>> Only two tables QACTL.F0002 and QACTL.F00021.
+impdp \'sys/*********@JDE001D_PDB as sysdba\' tables=QACTL.F0002,QACTL.F00021 remap_schema=QACTL:CRPCTL network_link=JDE001Q_PDB remap_tablespace=QACTLI:CRPCTLI,QACTLT:CRPCTLT \
+table_exists_action=REPLACE logfile=qactl_tables.log
+
+2. Gather stats on schema CRPCTL.
+
+EXECUTE DBMS_STATS.GATHER_SCHEMA_STATS(ownname=>'CRPCTL',degree=>8);
+
